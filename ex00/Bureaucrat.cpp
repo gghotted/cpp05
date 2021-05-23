@@ -8,6 +8,7 @@ Bureaucrat::Bureaucrat(const std::string& name, int grade)
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& bureaucrat)
+    throw(GradeTooHighException, GradeTooLowException)
     : name(bureaucrat.name)
 {
   *this = bureaucrat;
