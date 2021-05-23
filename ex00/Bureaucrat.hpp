@@ -36,7 +36,7 @@ class Bureaucrat
 
   static const int minGrade = 150;
   static const int maxGrade = 1;
-  const std::string& name;
+  const std::string name;
   int grade;
 };
 
