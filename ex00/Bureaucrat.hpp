@@ -13,7 +13,10 @@ class Bureaucrat
  public:
   Bureaucrat(const std::string& name, int grade)
              throw(GradeTooHighException, GradeTooLowException);
+  Bureaucrat(const Bureaucrat& bureaucrat);
   virtual ~Bureaucrat(void);
+
+  Bureaucrat& operator = (const Bureaucrat& bureaucrat);
 
   const std::string& getName() const;
   int getGrade() const;
@@ -21,6 +24,7 @@ class Bureaucrat
   void decreaseGrade() throw(GradeTooLowException);
 
  private:
+  Bureaucrat();
   class GradeTooHighException : public std::exception
   {
    public:

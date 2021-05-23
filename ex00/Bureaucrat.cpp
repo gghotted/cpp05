@@ -7,8 +7,20 @@ Bureaucrat::Bureaucrat(const std::string& name, int grade)
   setGrade(grade);
 }
 
+Bureaucrat::Bureaucrat(const Bureaucrat& bureaucrat)
+    : name(bureaucrat.name)
+{
+  *this = bureaucrat;
+}
+
 Bureaucrat::~Bureaucrat(void)
 {
+}
+
+Bureaucrat& Bureaucrat::operator = (const Bureaucrat& bureaucrat)
+{
+  grade = bureaucrat.grade;
+  return *this;
 }
 
 const std::string& Bureaucrat::getName() const
@@ -19,6 +31,10 @@ const std::string& Bureaucrat::getName() const
 int Bureaucrat::getGrade() const
 {
   return grade;
+}
+
+Bureaucrat::Bureaucrat()
+{
 }
 
 void Bureaucrat::increaseGrade() throw(GradeTooHighException)
