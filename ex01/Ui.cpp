@@ -57,6 +57,11 @@ std::string Ui::endMsg(std::string end) {
   return (end + Ui::white);
 }
 
+void Ui::colorPrint(const std::string& msg)
+{
+  std::cout << Ui::textColor << msg << Ui::endMsg("");
+}
+
 void Ui::setTextColor(const std::string& color) {
   Ui::textColor = color;
 }

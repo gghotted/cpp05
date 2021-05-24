@@ -14,8 +14,14 @@ int main()
     Form form("can i order a pizza?",
               Ui::readInt("required grade to sign"),
               Ui::readInt("required grade to exec"));
+
+    Ui::setTextColor(Ui::blue);
+    Ui::colorPrint("\nform state(before sign)\n");
     std::cout << form;
+    Ui::colorPrint("\nBureaucrat sign result\n");
     br.signForm(form);
+    Ui::colorPrint("\nform state(after sign)\n");
+    std::cout << form;
   }
   catch(const std::exception& e)
   {

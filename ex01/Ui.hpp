@@ -15,6 +15,8 @@ class Ui {
   static std::ostream& errorMsg(void);
   static std::string endMsg(std::string end="\n");
 
+  static void colorPrint(const std::string& msg);
+
   static const std::string colorPrefix;
   static const std::string red;
   static const std::string green;
