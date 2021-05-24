@@ -62,12 +62,12 @@ void Bureaucrat::signForm(Form& form) const
   }
 }
 
-const char* Bureaucrat::GradeTooHighException::what() const _NOEXCEPT
+const char* Bureaucrat::GradeTooHighException::what() const throw()
 {
   return "Bureaucrat: Too high grade!";
 }
 
-const char* Bureaucrat::GradeTooLowException::what() const _NOEXCEPT
+const char* Bureaucrat::GradeTooLowException::what() const throw()
 {
   return "Bureaucrat: Too low grade!";
 }

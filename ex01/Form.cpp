@@ -59,12 +59,12 @@ Form::Form() : name(""), signGrade(1), executeGrade(1)
 {
 }
 
-const char* Form::GradeTooHighException::what() const _NOEXCEPT
+const char* Form::GradeTooHighException::what() const throw()
 {
   return "Form: Too high grade!";
 }
 
-const char* Form::GradeTooLowException::what() const _NOEXCEPT
+const char* Form::GradeTooLowException::what() const throw()
 {
   return "Form: Too low grade!";
 }
@@ -87,7 +87,7 @@ bool Form::checkSignAllowed(const int& grade) const
 std::ostream& operator << (std::ostream& os, const Form& form)
 {
   std::cout << "form: " << form.getName() << "\n";
-  std::cout << "signed: " << (form.getIsSigned() ? "true" : "false") << '\n';
+  std::cout << "signed: " << std::boolalpha << form.getIsSigned() << '\n';
   std::cout << "required grade to sign: " << form.getSignGrade() << '\n';
   std::cout << "required grade to exec: " << form.getExecuteGrade() << '\n';
   return os;

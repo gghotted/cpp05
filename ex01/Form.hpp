@@ -29,15 +29,16 @@ class Form
 
  private:
   Form();
-  class GradeTooHighException : std::exception
+
+  class GradeTooHighException : public std::exception
   {
    public:
-    const char* what() const _NOEXCEPT;
+    const char* what() const throw();
   };
-  class GradeTooLowException : std::exception
+  class GradeTooLowException : public std::exception
   {
    public:
-    const char* what() const _NOEXCEPT;
+    const char* what() const throw();
   };
 
   static const int& checkValidGrade(const int& grade)
