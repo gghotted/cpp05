@@ -7,6 +7,7 @@
 
 int main()
 {
+  srand(time(0));
   Ui::setTextColor(Ui::green);
 
   Intern intern;
