@@ -13,10 +13,8 @@ class GradeTooLowException;
 class Form
 {
  public:
-  Form(const std::string& name, const int signGrade, const int executeGrade)
-      throw(GradeTooHighException, GradeTooLowException);
-  Form(const Form& form)
-      throw(GradeTooHighException, GradeTooLowException);
+  Form(const std::string& name, const int signGrade, const int executeGrade);
+  Form(const Form& form);
   virtual ~Form();
 
   Form& operator = (const Form& form);
@@ -25,7 +23,7 @@ class Form
   const bool& getIsSigned() const;
   const int& getSignGrade() const;
   const int& getExecuteGrade() const;
-  void beSigned(const Bureaucrat& bureaucrat) throw(GradeTooLowException);
+  void beSigned(const Bureaucrat& bureaucrat);
 
  private:
   Form();
@@ -41,8 +39,7 @@ class Form
     const char* what() const throw();
   };
 
-  static const int& checkValidGrade(const int& grade)
-      throw(GradeTooHighException, GradeTooLowException);
+  static const int& checkValidGrade(const int& grade);
   bool checkSignAllowed(const int& grade) const;
 
   static const int minGrade = 150;

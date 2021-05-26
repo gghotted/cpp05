@@ -1,7 +1,6 @@
 #include "Form.hpp"
 
 Form::Form(const std::string& name, const int signGrade, const int executeGrade)
-    throw(GradeTooHighException, GradeTooLowException)
     : name(name),
       signGrade(checkValidGrade(signGrade)),
       executeGrade(checkValidGrade(executeGrade)),
@@ -10,7 +9,6 @@ Form::Form(const std::string& name, const int signGrade, const int executeGrade)
 }
 
 Form::Form(const Form& form)
-    throw(GradeTooHighException, GradeTooLowException)
     : name(form.name),
       signGrade(checkValidGrade(form.signGrade)),
       executeGrade(checkValidGrade(form.executeGrade))
@@ -48,7 +46,7 @@ const int& Form::getExecuteGrade() const
   return executeGrade;
 }
 
-void Form::beSigned(const Bureaucrat& bureaucrat) throw(GradeTooLowException)
+void Form::beSigned(const Bureaucrat& bureaucrat)
 {
   if (!checkSignAllowed(bureaucrat.getGrade()))
     throw GradeTooLowException();
@@ -70,7 +68,6 @@ const char* Form::GradeTooLowException::what() const throw()
 }
 
 const int& Form::checkValidGrade(const int& grade)
-    throw(GradeTooHighException, GradeTooLowException)
 {
   if (grade < maxGrade)
     throw GradeTooHighException();

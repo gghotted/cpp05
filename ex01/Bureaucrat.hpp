@@ -13,18 +13,16 @@ class GradeTooLowException;
 class Bureaucrat
 {
  public:
-  Bureaucrat(const std::string& name, int grade)
-      throw(GradeTooHighException, GradeTooLowException);
-  Bureaucrat(const Bureaucrat& bureaucrat)
-      throw(GradeTooHighException, GradeTooLowException);
+  Bureaucrat(const std::string& name, int grade);
+  Bureaucrat(const Bureaucrat& bureaucrat);
   virtual ~Bureaucrat(void);
 
   Bureaucrat& operator = (const Bureaucrat& bureaucrat);
 
   const std::string& getName() const;
   int getGrade() const;
-  void increaseGrade() throw(GradeTooHighException);
-  void decreaseGrade() throw(GradeTooLowException);
+  void increaseGrade();
+  void decreaseGrade();
   void signForm(Form& form) const;
 
  private:
@@ -41,7 +39,7 @@ class Bureaucrat
     const char* what() const throw();
   };
 
-  void setGrade(int grade) throw(GradeTooHighException, GradeTooLowException);
+  void setGrade(int grade);
 
   static const int minGrade = 150;
   static const int maxGrade = 1;

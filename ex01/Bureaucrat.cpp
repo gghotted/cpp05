@@ -1,14 +1,12 @@
 #include "Bureaucrat.hpp"
 
 Bureaucrat::Bureaucrat(const std::string& name, int grade)
-    throw(GradeTooHighException, GradeTooLowException)
     : name(name)
 {
   setGrade(grade);
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& bureaucrat)
-    throw(GradeTooHighException, GradeTooLowException)
     : name(bureaucrat.name)
 {
   *this = bureaucrat;
@@ -38,12 +36,12 @@ Bureaucrat::Bureaucrat()
 {
 }
 
-void Bureaucrat::increaseGrade() throw(GradeTooHighException)
+void Bureaucrat::increaseGrade()
 {
   setGrade(grade - 1);
 }
 
-void Bureaucrat::decreaseGrade() throw(GradeTooLowException)
+void Bureaucrat::decreaseGrade()
 {
   setGrade(grade + 1);
 }
@@ -73,7 +71,6 @@ const char* Bureaucrat::GradeTooLowException::what() const throw()
 }
 
 void Bureaucrat::setGrade(int grade)
-    throw(GradeTooHighException, GradeTooLowException)
 {
   if (grade < maxGrade) throw GradeTooHighException();
   if (grade > minGrade) throw GradeTooLowException();
