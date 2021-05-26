@@ -5,9 +5,6 @@
 #include <string>
 #include <iostream>
 
-class GradeTooHighException;
-class GradeTooLowException;
-
 class Bureaucrat
 {
  public:
